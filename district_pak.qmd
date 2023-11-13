@@ -1,0 +1,43 @@
+---
+title: "Currently enrolled children in `r params$district` district"
+format: 
+  html :
+    theme: [default, theme.scss]
+params:
+  district: "MULTAN"
+  dataset:  "pslm"
+
+execute: 
+  freeze: auto
+---
+
+# 5-10 years of age children in school in `r params$district` based on `r params$dataset`
+
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(ggtext)
+library(haven)
+library(tidyr)
+library(gt)
+library(gtExtras)
+library(gtsummary)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+pidf<-read_dta("data/education_long.dta")
+
+
+pidf  |> haven::as_factor() |> filter(dataset==params$dataset, district==params$district) |>
+  group_by(year) |> summarise(avg=mean(point_estimate, na.rm=TRUE))|> mutate(year=as_factor(year)) |> 
+  gt() |> gt_theme_538() |> fmt_number(decimals = 2)
+
+
+```

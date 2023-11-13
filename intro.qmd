@@ -1,0 +1,50 @@
+---
+title: "Day-1"
+format: revealjs
+editor: visual
+---
+
+# Install R, RStudio (sometimes windows require RTools)
+
+
+
+# Why R
+
+
+# R packages and libraries
+
+
+
+# Working directing 
+
+-   getwd()
+-   here()
+
+
+# Data
+
+-   csv
+-   xlsx
+-   .dta
+-   .sav 
+-   .sas
+-   json
+-   text
+
+# Read and write data
+
+#    Data : vector, matrix, data frame
+
+# Taxonomy of Data
+
+# Metadata 
+
+# Inspect data (first task)
+
+-   dimensions 
+-   colnames, names 
+-   head()
+-   tail()
+-   str 
+-   glimpse 
+
